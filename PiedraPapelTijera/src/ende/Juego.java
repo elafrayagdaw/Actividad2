@@ -16,7 +16,7 @@ public class Juego
     	
         Jugador p1 = new Jugador();
         Jugador p2 = new Jugador();
-        boolean fin_de_juego = false;  
+        boolean findejuego = false;  
         int Rondasjugadas = 0;    // Numero de rondas jugadas
         int exitosjugador1 = p1.getExitos();
         int exitojugador2 = p2.getExitos();
@@ -36,32 +36,38 @@ public class Juego
             
             if((opcionjugador1.equals(piedra))&&(opcionjugador2.equals(papel)))
             {
+            	p2.setExitos();
                 System.out.println("Jugador 2 GANA");
                 exitojugador2 += p2.getExitos();
                 
             }
             else if((opcionjugador1.equals(papel))&&(opcionjugador2.equals(piedra)))
             {
+            	p1.setExitos();
             	exitosjugador1 += p1.getExitos();
                 System.out.println(j1gana);
             }
-            else if((opcionjugador1.equals("piedra"))&&(opcionjugador2.equals(tijeras)))
+            else if((opcionjugador1.equals(piedra))&&(opcionjugador2.equals(tijeras)))
             {
+            	p1.setExitos();
             	exitosjugador1 += p1.getExitos();
                 System.out.println(j1gana);
             }
             else if((opcionjugador1.equals(tijeras))&&(opcionjugador2.equals(piedra)))
             {
+            	p2.setExitos();
             	exitojugador2 += p2.getExitos();
                 System.out.println(j2gana);
             }
             else if((opcionjugador1.equals(tijeras))&&(opcionjugador2.equals(papel)))
             {
+            	p1.setExitos();
             	exitosjugador1 += p1.getExitos();
                 System.out.println(j1gana);
             }
             else if((opcionjugador1.equals(papel))&&(opcionjugador2.equals(tijeras)))
             {
+            	p2.setExitos();
             	exitojugador2 += p2.getExitos();
                 System.out.println(j2gana);
             }
@@ -73,11 +79,11 @@ public class Juego
             Rondasjugadas++;
             if((p1.getExitos() >= 3)||(p2.getExitos() >= 3))
             {
-            	fin_de_juego = true;
+            	findejuego = true;
                 System.out.println("FIN DEL JUEGO!!");
             }
             System.out.println();
-        } while(fin_de_juego != true);
+        } while(findejuego != true);
     }
 }
 /**
